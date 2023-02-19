@@ -1,4 +1,5 @@
     @extends('master')
+    <title>Write_it</title> 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Write_it</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -43,8 +44,12 @@
                 <h4>
                     @if ($item->title)
                         {{ $item->title }}
+                    @else
+                        No title 
                     @endif
                 </h4>
+                <p><span class="added-on">Added on : {{$item->created_at->format('d-m-Y ')}}</span></p>
+                <p><span  id="posted_by_name" class="posted">Posted by: {{$item->created_by}} </span></p>
             </div>
             @if ($item->description)
                 <div class="body">{{ $item->description }}</div>
